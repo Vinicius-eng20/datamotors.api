@@ -18,6 +18,7 @@ import com.datamotors.carros.dto.CarroRequestDTO;
 import com.datamotors.carros.dto.CarroResponseDTO;
 import com.datamotors.carros.service.CarroService;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -27,8 +28,8 @@ public class CarroController {
     
     private final CarroService carroService;
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<CarroResponseDTO> findById(@PathVariable(name = "id") Long id){
+    @GetMapping(value = "{id}")
+    public ResponseEntity<CarroResponseDTO> findById(@PathVariable(name = "id") String id){
         return ResponseEntity.ok().body(carroService.findById(id));
     }
 
@@ -51,14 +52,21 @@ public class CarroController {
         return ResponseEntity.created(uri).body(carroResponseDTO);
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<CarroResponseDTO> update(@RequestBody CarroRequestDTO carroDTO, @PathVariable(name = "id") Long id){
+    @PutMapping(value = "{id}")
+    public ResponseEntity<CarroResponseDTO> update(@RequestBody CarroRequestDTO carroDTO, @PathVariable(name = "id") String id){
         return ResponseEntity.ok().body(carroService.update(id, carroDTO));
     }
 
-    @DeleteMapping(value = " /{id}")
-    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id){
+    @DeleteMapping(value = "{id}")
+    @Transactional
+    public ResponseEntity<String> delete(@PathVariable String id){
         return ResponseEntity.ok().body(carroService.delete(id));
+    }
+
+    @DeleteMapping(value = "/delete")
+    @Transactional
+    public ResponseEntity<String> deleteAll(){
+        return ResponseEntity.ok().body(carroService.deleteAll());
     }
 
 }

@@ -23,6 +23,8 @@ public class CarroMapper {
             .cor(carroDTO.getCor())
             .transmissao(carroDTO.getTransmissao())
             .numPortas(carroDTO.getNumPortas())
+            .carroceria(carroDTO.getCarroceria())
+            .blindado(carroDTO.getBlindado())
             .quilometragem(carroDTO.getQuilometragem())
             .cidade(carroDTO.getCidade())
             .estado(carroDTO.getEstado())
@@ -49,6 +51,8 @@ public class CarroMapper {
         carro.setCor(carroDTO.getCor());
         carro.setTransmissao(carroDTO.getTransmissao());
         carro.setNumPortas(carroDTO.getNumPortas());
+        carro.setCarroceria(carroDTO.getCarroceria());
+        carro.setBlindado(carroDTO.getBlindado());
         carro.setQuilometragem(carroDTO.getQuilometragem());
         carro.setCidade(carroDTO.getCidade());
         carro.setEstado(carroDTO.getEstado());

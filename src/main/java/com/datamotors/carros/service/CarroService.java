@@ -6,14 +6,16 @@ import com.datamotors.carros.dto.CarroRequestDTO;
 import com.datamotors.carros.dto.CarroResponseDTO;
 
 public interface CarroService {
-    CarroResponseDTO findById(Long id);
+    CarroResponseDTO findById(String id);
 
     List<CarroResponseDTO> findAll();
 
     CarroResponseDTO register(CarroRequestDTO carrosDTO);
 
-    CarroResponseDTO update(Long id, CarroRequestDTO carrosDTO);
+    CarroResponseDTO update(String id, CarroRequestDTO carrosDTO);
 
-    String delete(Long id);
+    String delete(String id);
+
+    String deleteAll();
 
 }

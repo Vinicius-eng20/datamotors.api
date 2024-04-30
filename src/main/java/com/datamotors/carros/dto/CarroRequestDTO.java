@@ -13,6 +13,8 @@ public class CarroRequestDTO {
     private String cor;
     private String transmissao;
     private Integer numPortas;
+    private String carroceria;
+    private String blindado;
     private Long quilometragem;
     private String cidade; 
     private String estado;

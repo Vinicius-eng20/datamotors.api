@@ -1,23 +1,22 @@
 package com.datamotors.carros.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Builder;
+// import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_carros")
+@Table(name = "tb_carros", schema = "carros")
 @NoArgsConstructor
 @Getter @Setter
 public class Carro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false, unique = true)
-    @Setter(AccessLevel.NONE)
-    private Long id;
+    private String id;
 
     @Column(name = "marca", nullable = false)
     private String marca;
@@ -46,6 +45,12 @@ public class Carro {
     @Column(name = "quilometragem")
     private Long quilometragem;
 
+    @Column(name = "carroceria")
+    private String carroceria;
+
+    @Column(name = "blindado")
+    private String blindado;
+
     @Column(name = "cidade")
     private String cidade;
 
@@ -62,7 +67,7 @@ public class Carro {
     private String data;
 
     @Builder
-    public Carro(String marca, String modelo, String versao, String tipo, Long preco, String cor, String transmissao, Integer numPortas, Long quilometragem, String cidade, String estado, Integer anoFab, Integer anoModelo, String data) {
+    public Carro(String marca, String modelo, String versao, String tipo, Long preco, String cor, String transmissao, Integer numPortas, String carroceria, String blindado, Long quilometragem, String cidade, String estado, Integer anoFab, Integer anoModelo, String data) {
         this.marca = marca;
         this.modelo = modelo;
         this.versao = versao;
@@ -71,6 +76,8 @@ public class Carro {
         this.cor = cor;
         this.transmissao = transmissao;
         this.numPortas = numPortas;
+        this.carroceria = carroceria;
+        this.blindado = blindado;
         this.quilometragem = quilometragem;
         this.cidade = cidade;
         this.estado = estado;

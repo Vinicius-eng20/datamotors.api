@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class CarroResponseDTO {
     
-    private Long id;
+    private String id;
     private String marca;
     private String modelo;
     private String versao;
@@ -16,6 +16,8 @@ public class CarroResponseDTO {
     private String cor;
     private String transmissao;
     private Integer numPortas;
+    private String carroceria;
+    private String blindado;
     private Long quilometragem;
     private String cidade; 
     private String estado;
@@ -33,6 +35,8 @@ public class CarroResponseDTO {
         this.cor = carro.getCor();
         this.transmissao = carro.getTransmissao();
         this.numPortas = carro.getNumPortas();
+        this.carroceria = carro.getCarroceria();
+        this.blindado = carro.getBlindado();
         this.quilometragem = carro.getQuilometragem();
         this.cidade = carro.getCidade();
         this.estado = carro.getEstado();
